@@ -2,6 +2,6 @@
 
 @section('content')
     <div id="app">
-        <h1>Products will be here</h1>
+        <products-component></products-component>
     </div>
 @endsection
