@@ -8,6 +8,3 @@ Route::get('/', function () {
 });
 
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
-
-// API Routes
-Route::get('/api/products/fetch', [ProductController::class, 'fetchAndStore'])->name('products.fetch');
