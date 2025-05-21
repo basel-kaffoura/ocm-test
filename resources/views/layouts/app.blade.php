@@ -13,7 +13,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-        <a class="navbar-brand" href="{{ route('products.index') }}">Main Products</a>
+        <a class="navbar-brand" href="{{ route('products.index') }}">OCM Test</a>
     </div>
 </nav>
 
@@ -23,7 +23,7 @@
 
 <footer class="bg-light py-4 mt-5">
     <div class="container text-center">
-        <p class="mb-0">OCM Test, Copy @ {{ date('Y') }}</p>
+        <p class="mb-0">Basel Kaffoura, Copy @ {{ date('Y') }}</p>
     </div>
 </footer>
 
