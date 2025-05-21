@@ -19,6 +19,13 @@
         <div class="alert alert-danger" v-if="apiMessage && !apiSuccess">
             {{ apiMessage }}
         </div>
+
+        <!--No products available section-->
+        <div v-else-if="products.length === 0" class="text-center">
+            <i class="bi bi-inbox display-1 text-muted"></i>
+            <h3 class="mt-3">No products available</h3>
+            <p>Try updating products from the API</p>
+        </div>
     </div>
 </template>
 
@@ -26,6 +33,7 @@
 export default {
     data() {
         return {
+            products: [],
             apiMessage: '',
             apiSuccess: false,
         }
