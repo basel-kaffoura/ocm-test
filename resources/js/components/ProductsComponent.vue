@@ -6,6 +6,7 @@
         <!--Refresh Products Button: from API to DB-->
         <div class="col-md-6 text-md-end">
             <button @click="fetchProductsFromApi" class="btn btn-primary mb-3">
+                <i class="bi bi-cloud-download"></i>
                 Refresh from API to DB
             </button>
         </div>
