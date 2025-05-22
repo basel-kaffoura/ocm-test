@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
 use App\Services\ProductService;
 use Illuminate\Http\Request;
 
@@ -34,8 +33,9 @@ class ProductController extends Controller
     /**
      * Fetch products from the DB
      */
-    public function getProducts() {
-        $products = Product::query()->get();
+    public function getProducts(Request $request) {
+        $search = $request->input('search');
+        $products = $this->productService->searchProducts($search);
         return response()->json($products);
     }
 }

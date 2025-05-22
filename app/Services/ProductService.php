@@ -60,4 +60,21 @@ class ProductService
             ];
         }
     }
+
+    /**
+     * Search for products (based on title, description or category)
+     */
+    public function searchProducts($search = null) {
+        $query = Product::query();
+
+        if ($search) {
+            $query->where(function ($q) use ($search) {
+                $q->where('title', 'like', "%{$search}%")
+                    ->orWhere('description', 'like', "%{$search}%")
+                    ->orWhere('category', 'like', "%{$search}%");
+            });
+        }
+
+        return $query->get();
+    }
 }
