@@ -20,6 +20,12 @@
             {{ apiMessage }}
         </div>
 
+        <!--Show spinner while loading products-->
+        <div v-if="loading" class="text-center py-5">
+            <div class="spinner-border text-primary"></div>
+            <p class="mt-2">Loading products...</p>
+        </div>
+
         <!--No products available section-->
         <div v-else-if="products.length === 0" class="text-center">
             <i class="bi bi-inbox display-1 text-muted"></i>
