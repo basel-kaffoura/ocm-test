@@ -5,7 +5,7 @@
         </div>
         <!--Refresh Products Button: from API to DB-->
         <div class="col-md-6 text-md-end">
-            <button @click="fetchProductsFromApi" class="btn btn-primary mb-3">
+            <button @click="fetchProductsFromApi" class="btn btn-primary mb-3" :disabled="loading">
                 <i class="bi bi-cloud-download"></i>
                 Refresh from API to DB to Page
             </button>
@@ -64,6 +64,7 @@ export default {
             products: [],
             apiMessage: '',
             apiSuccess: false,
+            loading: true,
         }
     },
     mounted() {
@@ -72,6 +73,7 @@ export default {
     methods: {
         // Fetch products from API and store them in the database
         fetchProductsFromApi() {
+            this.loading = true;
             this.apiMessage = '';
 
             axios.get('/api/products/fetch')
@@ -81,22 +83,30 @@ export default {
                     if (this.apiSuccess) {
                         this.getProducts();
                     }
+                    else {
+                        this.loading = false;
+                    }
                 })
                 .catch(error => {
                     this.apiMessage = 'An error occurred while fetching products: ' + error.message;
                     this.apiSuccess = false;
+                    this.loading = false;
                 });
         },
 
         // Fetch products from DB
         getProducts() {
+            this.loading = true;
             axios
                 .get("/api/products")
                 .then((response) => {
                     this.products = response.data;
+                    this.loading = false;
+
                 })
                 .catch((error) => {
                     console.error("An error occurred while fetching products: ", error);
+                    this.loading = false;
                 });
         },
     }
