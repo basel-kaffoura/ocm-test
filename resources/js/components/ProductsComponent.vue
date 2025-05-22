@@ -21,12 +21,19 @@
         </div>
 
         <!--Search products section-->
-        <div>
-            <input
-                type="text"
-                class="form-control"
-                placeholder="Search products..."
-            />
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="bi bi-search"></i>
+                    </span>
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Search products..."
+                    />
+                </div>
+            </div>
         </div>
 
         <!--Show spinner while loading products-->
