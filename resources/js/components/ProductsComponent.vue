@@ -20,6 +20,15 @@
             {{ apiMessage }}
         </div>
 
+        <!--Search products section-->
+        <div>
+            <input
+                type="text"
+                class="form-control"
+                placeholder="Search products..."
+            />
+        </div>
+
         <!--Show spinner while loading products-->
         <div v-if="loading" class="text-center py-5">
             <div class="spinner-border text-primary"></div>
@@ -88,8 +97,7 @@ export default {
                     this.apiSuccess = response.data.success;
                     if (this.apiSuccess) {
                         this.getProducts();
-                    }
-                    else {
+                    } else {
                         this.loading = false;
                     }
                 })
