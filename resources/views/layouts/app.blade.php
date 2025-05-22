@@ -11,18 +11,18 @@
     @vite(['resources/js/app.js'])
 </head>
 
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<body  class="d-flex flex-column min-vh-100">
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
     <div class="container">
         <a class="navbar-brand" href="{{ route('products.index') }}">OCM Test</a>
     </div>
 </nav>
 
-<div class="container mt-4">
+<main class="flex-grow-1 container mt-4">
     @yield('content')
-</div>
+</main>
 
-<footer class="bg-light py-4 mt-5">
+<footer class="bg-light py-4 mt-5 custom-footer">
     <div class="container text-center">
         <p class="mb-0">Basel Kaffoura, Copy @ {{ date('Y') }}</p>
     </div>

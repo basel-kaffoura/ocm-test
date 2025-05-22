@@ -1,7 +1,7 @@
 <template>
     <div class="row mb-4">
         <div class="col-md-6">
-            <h1>Products</h1>
+            <h1 class="fs-2 text-primary">Products</h1>
         </div>
         <!--Refresh Products Button: from API to DB-->
         <div class="col-md-6 text-md-end">

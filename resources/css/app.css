@@ -32,3 +32,22 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
+
+.custom-navbar {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+}
+
+.custom-navbar .navbar-brand {
+    font-weight: bold;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+}
+
+.custom-footer {
+    border-top: 1px solid #dee2e6;
+    background-color: #f8f9fa;
+    font-size: 0.95rem;
+    color: #6c757d;
+}
