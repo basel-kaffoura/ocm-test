@@ -7,4 +7,5 @@ Route::get('/', function () {
     return redirect()->route('products.index');
 });
 
+// Show the main products page (renders the Vue component)
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
