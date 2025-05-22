@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Product;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
@@ -13,8 +14,7 @@ class ProductService
     /**
      * Fetch products from API and store them in the DB
      */
-    public function fetchAndStoreProducts()
-    {
+    public function fetchAndStoreProducts(): array {
         // Attempt to fetch data from API and handle errors
         try {
             // Fetch products from API
@@ -27,7 +27,7 @@ class ProductService
                 // Store each product in the DB
                 foreach ($products as $productData) {
                     Product::updateOrCreate(
-                        ['id' => $productData['id']],
+                        ['api_id' => $productData['id']],
                         [
                             'title' => $productData['title'],
                             'price' => $productData['price'],
@@ -64,7 +64,7 @@ class ProductService
     /**
      * Search for products (based on title, description or category)
      */
-    public function searchProducts($search = null) {
+    public function searchProducts($search = null): Collection {
         $query = Product::query();
 
         if ($search) {
