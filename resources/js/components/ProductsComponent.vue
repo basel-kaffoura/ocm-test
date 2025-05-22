@@ -32,7 +32,7 @@
                         class="form-control"
                         placeholder="Search products..."
                         v-model="searchInput"
-                        @input="getProducts"
+                        @input="searchProducts"
                     />
                 </div>
             </div>
@@ -48,7 +48,7 @@
         <div v-else-if="products.length === 0" class="text-center">
             <i class="bi bi-inbox display-1 text-muted"></i>
             <h3 class="mt-3">No products available</h3>
-            <p>Try updating products from the API</p>
+            <p>Try updating products from the API or changing your search term.</p>
         </div>
         <!--Products available section-->
         <div v-else class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
@@ -90,6 +90,7 @@ export default {
             apiSuccess: false,
             loading: true,
             searchInput: '',
+            searchTimeout: null,
         }
     },
     mounted() {
@@ -136,6 +137,18 @@ export default {
                     console.error("An error occurred while fetching products: ", error);
                     this.loading = false;
                 });
+        },
+        // Search products with debouncing
+        searchProducts() {
+            // Clear the previous timeout if it exists
+            if (this.searchTimeout) {
+                clearTimeout(this.searchTimeout);
+            }
+
+            // Delay search until the user stops typing
+            this.searchTimeout = setTimeout(() => {
+                this.getProducts();
+            }, 500);
         },
     }
 }
