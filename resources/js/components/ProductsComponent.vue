@@ -7,7 +7,7 @@
         <div class="col-md-6 text-md-end">
             <button @click="fetchProductsFromApi" class="btn btn-primary mb-3">
                 <i class="bi bi-cloud-download"></i>
-                Refresh from API to DB
+                Refresh from API to DB to Page
             </button>
         </div>
 
@@ -74,6 +74,9 @@ export default {
                 .then(response => {
                     this.apiMessage = response.data.message;
                     this.apiSuccess = response.data.success;
+                    if (this.apiSuccess) {
+                        this.getProducts();
+                    }
                 })
                 .catch(error => {
                     this.apiMessage = 'An error occurred while fetching products: ' + error.message;
