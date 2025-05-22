@@ -27,25 +27,29 @@
             <p>Try updating products from the API</p>
         </div>
         <!--Products available section-->
-        <div v-else class="row">
+        <div v-else class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             <div v-for="product in products" :key="product.id" class="col">
-                <div class="card">
-                    <div class="text-center">
+                <div class="card h-100 product-card">
+                    <div class="text-center p-3">
                         <img
                             :src="product.image"
                             class="product-image"
                             :alt="product.title"
                         />
                     </div>
-                    <div class="card-body">
-                        <h5>{{ product.title }}</h5>
-                        <p>{{ product.description }}</p>
-                        <div class="bg-info">
-                            <span>{{ product.category }} | {{ product.price }}$</span>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ product.title }}</h5>
+                        <p class="card-text">{{ product.description }}</p>
+                        <div class="d-flex justify-content-between align-items-center mt-auto">
+                            <span class="badge bg-primary">{{ product.category }}</span>
+                            <span class="fs-5 fw-bold">{{ product.price }}$</span>
                         </div>
                     </div>
                     <div class="card-footer">
-                            <small>Rating: {{ product.rating_rate }}/5, {{ product.rating_count }} ratings</small>
+                        <div class="d-flex justify-content-between">
+                            <small class="text-muted">Rating: {{ product.rating_rate }}/5</small>
+                            <small class="text-muted">{{ product.rating_count }} ratings</small>
+                        </div>
                     </div>
                 </div>
             </div>

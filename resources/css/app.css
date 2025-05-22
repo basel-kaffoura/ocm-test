@@ -9,3 +9,26 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+.product-card {
+    height: 100%;
+}
+
+.product-card:hover {
+    background-color: ghostwhite;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transform: translateY(-5px);
+}
+
+.product-image {
+    height: 200px;
+}
+
+.card-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
