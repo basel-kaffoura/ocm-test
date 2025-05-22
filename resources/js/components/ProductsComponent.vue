@@ -31,6 +31,8 @@
                         type="text"
                         class="form-control"
                         placeholder="Search products..."
+                        v-model="searchInput"
+                        @input="getProducts"
                     />
                 </div>
             </div>
@@ -87,6 +89,7 @@ export default {
             apiMessage: '',
             apiSuccess: false,
             loading: true,
+            searchInput: '',
         }
     },
     mounted() {
@@ -119,7 +122,11 @@ export default {
         getProducts() {
             this.loading = true;
             axios
-                .get("/api/products")
+                .get("/api/products", {
+                    params: {
+                        search: this.searchInput,
+                    },
+                })
                 .then((response) => {
                     this.products = response.data;
                     this.loading = false;
